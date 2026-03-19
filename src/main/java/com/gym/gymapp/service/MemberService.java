@@ -15,11 +15,11 @@ public class MemberService {
         this.repository = repository;
     }
 
-    public List<Member> getAll() {
+    public List<Member> getAllMembers() {
         return repository.findAll();
     }
 
-    public Member save(Member member) {
+    public Member addMember(Member member) {
         return repository.save(member);
     }
 }

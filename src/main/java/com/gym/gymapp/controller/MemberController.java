@@ -2,16 +2,11 @@ package com.gym.gymapp.controller;
 
 import com.gym.gymapp.entity.Member;
 import com.gym.gymapp.service.MemberService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/members")
 public class MemberController {
 
     private final MemberService service;
@@ -20,13 +15,13 @@ public class MemberController {
         this.service = service;
     }
 
-    @GetMapping
-    public List<Member> getAll() {
-        return service.getAll();
+    @GetMapping("/getmembers")
+    public List<Member> getMembers() {
+        return service.getAllMembers();
     }
 
-    @PostMapping
-    public Member create(@RequestBody Member member) {
-        return service.save(member);
+    @PostMapping("/addmember")
+    public Member addMember(@RequestBody Member member) {
+        return service.addMember(member);
     }
 }
